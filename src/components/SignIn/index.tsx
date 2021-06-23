@@ -11,7 +11,6 @@ import { styles } from './styles'
 import IllustrationImg from '../../assets/illustration.png'
 import { ButtonIcon } from '../ButtonIcon'
 
-
 export function SignIn() {
   const navigation = useNavigation()
 
