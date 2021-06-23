@@ -1,15 +1,35 @@
 import React from 'react'
-import { Text, View, ImageBackground } from 'react-native'
+import { Text, View, FlatList, ImageBackground } from 'react-native'
 import { BorderlessButton } from 'react-native-gesture-handler'
 import { Fontisto } from '@expo/vector-icons'
 
-import { Background } from '../../components/Background'
-import { Header } from '../../components/Header'
 import { theme } from '../../global/styles/theme'
-import BannerImg from '../../assets/banner.png'
 import { styles } from './styles'
+import BannerImg from '../../assets/banner.png'
+
+import { Background } from '../../components/Background'
+import { ListHeader } from '../../components/ListHeader'
+import { Header } from '../../components/Header'
+import { Member } from '../../components/Member'
+import { Divider } from '../../components/Divider'
+import { ButtonIcon } from '../../components/ButtonIcon'
 
 export function AppointmentDetails() {
+  const members = [
+    {
+      id: '1',
+      username: 'Luiiz',
+      avatar_url: 'https://github.com/luiizsilverio.png',
+      status: 'online'
+    },
+    {
+      id: '2',
+      username: 'Rodrigo',
+      avatar_url: 'https://github.com/rodrigorgtic.png',
+      status: 'offline'
+    }
+  ]
+
   return (
     <Background>
       <Header
@@ -36,6 +56,25 @@ export function AppointmentDetails() {
           </Text>
         </View>
       </ImageBackground>
+
+      <ListHeader 
+        title="Jogadores"
+        subtitle="Total 3"
+      />
+
+      <FlatList
+        data={members}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => (
+          <Member data={item} />
+        )}
+        ItemSeparatorComponent={() => <Divider />}
+        style={styles.members}
+      />
+
+      <View style={styles.footer}>
+        <ButtonIcon title="Entrar na partida" />
+      </View>
     </Background>
   )
 }

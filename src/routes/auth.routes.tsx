@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { Home } from '../Pages/Home'
 import { SignIn } from '../components/SignIn'
 import { AppointmentDetails } from '../Pages/AppointmentDetails'
+import { AppointmentCreate } from '../Pages/AppointmentCreate'
 
 const { Navigator, Screen } = createStackNavigator()
 
@@ -28,6 +29,10 @@ export function AuthRoutes() {
       <Screen
         name="AppointmentDetails"
         component={AppointmentDetails}
+      />
+      <Screen
+        name="AppointmentCreate"
+        component={AppointmentCreate}
       />
     </Navigator>
   )
