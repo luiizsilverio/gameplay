@@ -25,22 +25,23 @@ export const styles = StyleSheet.create({
     paddingRight: 25,
     overflow: 'hidden'    
   },
-  image: {
-    width: 64,
-    height: 64,
-    backgroundColor: theme.color.secondary50,
-    borderWidth: 1,
-    borderRadius: 8
-  },
   selectBody: {
     flex: 1,
     alignItems: 'center'
+  },
+  image: {
+    width: 64,
+    height: 68,
+    backgroundColor: theme.color.secondary40,
+    borderColor: theme.color.secondary50,
+    borderWidth: 1,
+    borderRadius: 8
   },
   field: {
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 30
+    marginTop: 26
   },
   column: {
     flexDirection: 'row',

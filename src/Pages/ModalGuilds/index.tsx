@@ -20,10 +20,16 @@ export function ModalGuilds({ selectGuild }: Props) {
     },
     {
       id: '2',
-      name: 'Omnis',
+      name: 'Galera do game',
       icon: 'image.png',
       owner: false
-    }
+    },
+    {
+      id: '3',
+      name: 'Omnis',
+      icon: 'image.png',
+      owner: true
+    }    
   ]
 
   return (
@@ -38,8 +44,11 @@ export function ModalGuilds({ selectGuild }: Props) {
           />
         )}
         showsVerticalScrollIndicator={false}
-        ItemSeparatorComponent={() => <Divider />}
+        ItemSeparatorComponent={() => <Divider center />}
+        ListHeaderComponent={() => <Divider center />}
+        ListFooterComponent={() => <Divider center />}
         style={styles.guilds}
+        contentContainerStyle={{paddingBottom: 68, paddingTop: 103}}
       />
     </View>
   )

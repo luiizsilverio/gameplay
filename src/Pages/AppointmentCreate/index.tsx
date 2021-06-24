@@ -32,17 +32,25 @@ export function AppointmentCreate() {
     setOpenModal(true)
   }
 
+  function handleCloseModal() {
+    setOpenModal(false)
+  }
+
   function handleGuildSelect(guildSelected: GuildProps) {
     setGuild(guildSelected)
     setOpenModal(false)
   }
-  
+
+  function handleCategorySelect(categoryId: string) {
+    setCategory(categoryId)
+  }
+
   return (    
     <KeyboardAvoidingView 
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
     >
-        
+    <Background>
       <ScrollView>
         <Header
           title="Agendar Partida"        
@@ -50,14 +58,14 @@ export function AppointmentCreate() {
 
         <Text 
           style={[styles.label, 
-          {marginLeft: 24, marginTop: 36, marginBottom: 18}]}
+          {marginLeft: 24, marginTop: 28, marginBottom: 14}]}
         >
           Categoria
         </Text>
 
         <CategorySelect
           hasCheckBox
-          setCategory={setCategory}
+          setCategory={handleCategorySelect}
           categorySelected={category}
         />
 
@@ -90,7 +98,7 @@ export function AppointmentCreate() {
 
           <View style={styles.field}>
             <View>
-              <Text style={styles.label}>
+              <Text style={[styles.label, {marginBottom: 12}]}>
                 Dia e mês
               </Text>
               <View style={styles.column}>
@@ -101,7 +109,7 @@ export function AppointmentCreate() {
             </View>
 
             <View>
-              <Text style={styles.label}>
+              <Text style={[styles.label, {marginBottom: 12}]}>
                 Hora e minuto
               </Text>
               <View style={styles.column}>
@@ -134,10 +142,14 @@ export function AppointmentCreate() {
           </View>
         </View>
       </ScrollView>            
+    </Background>
 
-      <ModalView visible={openModal}>
-        <ModalGuilds selectGuild={handleGuildSelect} />
-      </ModalView>
+    <ModalView 
+      visible={openModal} 
+      closeModal={handleCloseModal}
+    >
+      <ModalGuilds selectGuild={handleGuildSelect} />
+    </ModalView>
     
     </KeyboardAvoidingView>
   )

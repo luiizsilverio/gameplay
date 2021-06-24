@@ -35,7 +35,7 @@ const appointments = [
     category: '1',
     date: '22/06 às 20:40',
     description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'
-  }
+  }  
 ]
 
 export function Home() {
@@ -58,7 +58,7 @@ export function Home() {
   }
 
   return (
-    <View>
+    <>
       <View style={styles.header}>
         <Profile />
         <ButtonAdd onPress={handleAppointmentCreate}/>
@@ -68,28 +68,27 @@ export function Home() {
         categorySelected={category}
         setCategory={handleCategorySelect}
       />
+    
+      <ListHeader 
+        title="Partidas agendadas"
+        subtitle="Total 6"
+      />
 
-      <View style={styles.content}>
-        <ListHeader 
-          title="Partidas agendadas"
-          subtitle="Total 6"
-        />
-
-        <FlatList 
-          data={appointments}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => (
-            <Appointment 
-              data={ item } 
-              onPress={handleAppointmentDetails}
-            /> 
-          )}
-          ItemSeparatorComponent={() => <Divider />}
-          style={styles.matches}
-          showsVerticalScrollIndicator={false}
-        />
-
-      </View>    
-    </View>
+      <FlatList 
+        data={appointments}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => (
+          <Appointment 
+            data={ item } 
+            onPress={handleAppointmentDetails}
+          /> 
+        )}
+        ItemSeparatorComponent={() => <Divider />}
+        style={styles.matches}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 69 }}
+      />
+      
+    </>
   )
 }
