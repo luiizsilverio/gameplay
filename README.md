@@ -17,6 +17,7 @@ Uso intensivo de contexto e acesso à API do Discord.
   
 ## :hammer_and_wrench: Tecnologias
 * __React Native__ com Expo
+* __Typescript__
 * Autenticação com __AuthSession__ (expo-auth-session)
 * __Axios__ para acessar a API do Discord
 * __Uuid__ (react-native-uuid)
