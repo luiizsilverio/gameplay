@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, FlatList } from 'react-native'
 
 import { Guild, GuildProps } from '../../components/Guild'
@@ -10,8 +10,11 @@ type Props = {
   selectGuild: (guild: GuildProps) => void
 }
 
-export function ModalGuilds({ selectGuild }: Props) {
-  const guilds = [
+export function Guilds({ selectGuild }: Props) {
+  const [guilds, setGuilds] = useState<GuildProps[]>([])
+  const [loading, setLoading] = useState(true)
+  
+  const guildsx = [
     {
       id: '1',
       name: 'Lendários',

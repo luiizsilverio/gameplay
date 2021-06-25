@@ -8,7 +8,7 @@ import { AppointmentCreate } from '../Pages/AppointmentCreate'
 
 const { Navigator, Screen } = createStackNavigator()
 
-export function AuthRoutes() {
+export function AppRoutes() {
   return (
     <Navigator
       headerMode="none" //não mostra o título da página

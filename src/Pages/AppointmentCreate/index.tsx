@@ -17,7 +17,7 @@ import { SmallInput } from '../../components/SmallInput'
 import { TextArea } from '../../components/TextArea'
 import { Button } from '../../components/Button'
 import { ModalView } from '../../components/ModalView'
-import { ModalGuilds } from '../ModalGuilds'
+import { Guilds } from '../Guilds'
 import { GuildProps } from '../../components/Guild'
 
 import { theme } from '../../global/styles/theme'
@@ -148,7 +148,7 @@ export function AppointmentCreate() {
       visible={openModal} 
       closeModal={handleCloseModal}
     >
-      <ModalGuilds selectGuild={handleGuildSelect} />
+      <Guilds selectGuild={handleGuildSelect} />
     </ModalView>
     
     </KeyboardAvoidingView>
